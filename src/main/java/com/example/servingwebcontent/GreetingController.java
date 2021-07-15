@@ -19,8 +19,8 @@ public class GreetingController {
         model.addAttribute("name",
                 controller.getBeer()
                         .stream()
-                        .findFirst()
-                        .orElse(new Root()));
+                        .findFirst().map(Root::getName)
+                        .orElse(""));
         return "greeting";
     }
 }
